@@ -9,7 +9,7 @@ import os
 load_dotenv()
 
 # Initialize Firebase Admin SDK
-cred = credentials.Certificate(r"C:\Users\anshs\OneDrive\Documents\new_credentials.json")
+cred = credentials.Certificate("new_credentials.json")
 firebase_admin.initialize_app(cred, {
     "databaseURL": "https://multilingual-chat-app-54d26-default-rtdb.asia-southeast1.firebasedatabase.app/"
 })

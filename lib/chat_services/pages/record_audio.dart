@@ -58,7 +58,7 @@ class _RecordAudioState extends State<RecordAudio> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Smart Manufacturing Assistant '),
+        title: Text('Your Assistant '),
         backgroundColor: Colors.transparent,
         centerTitle: true,
         actionsPadding: EdgeInsets.only(top: 20),
@@ -72,7 +72,6 @@ class _RecordAudioState extends State<RecordAudio> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 if (isListening)
-                  
                   Lottie.asset(
                     'assets/json/listening.json',
                     height: 600,

@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 Future<String> sendMessage(String userMessage) async {
   print("entered the model of groq");
   final url = Uri.parse(
-    'http://192.168.119.231:5000/chat',
+    'https://eduguide-de-project.onrender.com/chat',
   ); // Replace with your server's IP if running on a real device
 
   try {

@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+youtube_transcript_api
+flask
+langchain_groq
+dotenv
+langchain_core
+firebase_admin
+uvicorn

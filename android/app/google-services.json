@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "574001282363",
+    "project_id": "margdarshak-345f4",
+    "storage_bucket": "margdarshak-345f4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574001282363:android:e9ba4197313a5f76620b1e",
+        "android_client_info": {
+          "package_name": "com.example.copy_of_margdrashak"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSGMKun73sy1phMjiPe8fVdoEBmF9xvWE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574001282363:android:03d6266f718d7702620b1e",
+        "android_client_info": {
+          "package_name": "com.example.eduguide"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSGMKun73sy1phMjiPe8fVdoEBmF9xvWE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

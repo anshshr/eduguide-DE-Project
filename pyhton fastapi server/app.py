@@ -5,6 +5,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 import firebase_admin
 from firebase_admin import credentials, db
 import os
+from youtube_transcript_api import YouTubeTranscriptApi
 
 load_dotenv()
 
@@ -62,6 +63,21 @@ def chat():
     })
     
     return jsonify({"response": response.content})
+
+    @app.route("/random", methods=["GET"])
+    def random():
+        print("Random")
+        return jsonify({"message": "Random", "status": 200})
+
+    @app.route("/get_video_transcript/<videoid>", methods=["GET"])
+    def get_video_transcript(videoid):
+        print("get_video_transcript")
+        try:
+            transcript_text = YouTubeTranscriptApi.get_transcript(videoid)
+            transcript = " ".join([i["text"] for i in transcript_text])
+            return jsonify({"transcript": transcript, "status": 200})
+        except Exception as e:
+            return jsonify({"error": str(e), "status": 500})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

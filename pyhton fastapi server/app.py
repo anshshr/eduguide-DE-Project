@@ -81,46 +81,46 @@ def get_video_transcript(videoid):
     except Exception as e:
         return jsonify({"error": str(e), "status": 500})
 
-# 🧠 AGENT: Career Path Navigator
-@app.route("/career_path_advice", methods=["POST"])
-def career_path_advice():
-    data = request.get_json()
-    topic = data.get("goal")
-    if not topic:
-        return jsonify({"error": "Goal is required"}), 400
+# # 🧠 AGENT: Career Path Navigator
+# @app.route("/career_path_advice", methods=["POST"])
+# def career_path_advice():
+#     data = request.get_json()
+#     topic = data.get("goal")
+#     if not topic:
+#         return jsonify({"error": "Goal is required"}), 400
 
-    prompt = f"""
-    You are a career path planning assistant. A user wants to become {topic}.
-    Provide a step-by-step roadmap including:
-    - Learning courses or certifications
-    - Suggested projects or portfolio ideas
-    - Resume improvement tips
-    - Job titles to apply for in 3, 6, and 12 months
-    """
+#     prompt = f"""
+#     You are a career path planning assistant. A user wants to become {topic}.
+#     Provide a step-by-step roadmap including:
+#     - Learning courses or certifications
+#     - Suggested projects or portfolio ideas
+#     - Resume improvement tips
+#     - Job titles to apply for in 3, 6, and 12 months
+#     """
 
-    response = llm.invoke([HumanMessage(prompt)])
-    return jsonify({"career_path_plan": response.content})
+#     response = llm.invoke([HumanMessage(prompt)])
+#     return jsonify({"career_path_plan": response.content})
 
-# 🧑‍🏫 AGENT: Mentorship Matchmaking
-@app.route("/mentor_match", methods=["POST"])
-def mentor_match():
-    data = request.get_json()
-    user_topic = data.get("topic")
-    if not user_topic:
-        return jsonify({"error": "Topic is required"}), 400
+# # 🧑‍🏫 AGENT: Mentorship Matchmaking
+# @app.route("/mentor_match", methods=["POST"])
+# def mentor_match():
+#     data = request.get_json()
+#     user_topic = data.get("topic")
+#     if not user_topic:
+#         return jsonify({"error": "Topic is required"}), 400
 
-    prompt = f"""
-    You are an intelligent mentor-matching assistant.
-    A user is looking for mentorship on: "{user_topic}"
-    Based on this, return:
-    - Tags required in mentor profiles
-    - Type of mentor (HR, Software Engineer, Interview Coach, etc.)
-    - Ideal session goals
-    - Summary to send post-session
-    """
+#     prompt = f"""
+#     You are an intelligent mentor-matching assistant.
+#     A user is looking for mentorship on: "{user_topic}"
+#     Based on this, return:
+#     - Tags required in mentor profiles
+#     - Type of mentor (HR, Software Engineer, Interview Coach, etc.)
+#     - Ideal session goals
+#     - Summary to send post-session
+#     """
 
-    response = llm.invoke([HumanMessage(prompt)])
-    return jsonify({"mentor_match_suggestion": response.content})
+#     response = llm.invoke([HumanMessage(prompt)])
+#     return jsonify({"mentor_match_suggestion": response.content})
 
 # to generate the fow chart of the user specific needs
 @app.route("/generate_diagram", methods=["POST"])

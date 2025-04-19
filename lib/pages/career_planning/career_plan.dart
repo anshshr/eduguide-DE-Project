@@ -67,7 +67,11 @@ class _CareerPlanState extends State<CareerPlan> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => CareersShow(carrer_topic: courses[index],)),
+                        MaterialPageRoute(
+                          builder:
+                              (context) =>
+                                  CareersShow(carrer_topic: courses[index]),
+                        ),
                       );
                     },
                     child: Card(

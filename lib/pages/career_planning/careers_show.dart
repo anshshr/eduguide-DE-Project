@@ -12,32 +12,34 @@ class CareersShow extends StatefulWidget {
 }
 
 class _CareersShowState extends State<CareersShow> {
-  String? careerPathPlan;
+  String? imageUrl;
   bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    fetchCareerPathAdvice();
+    fetchPlantUMLImage();
   }
 
-  Future<void> fetchCareerPathAdvice() async {
-    final url = Uri.parse('http://192.168.119.237:5000/career_path_advice');
+  Future<void> fetchPlantUMLImage() async {
+    final url = Uri.parse(
+      'https://plantuml-diagram-generator.onrender.com/generate-plantuml',
+    );
     final response = await http.post(
       url,
       headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({'goal': widget.carrer_topic}),
+      body: jsonEncode({'topicName': widget.carrer_topic}),
     );
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
       setState(() {
-        careerPathPlan = data['career_path_plan'];
+        imageUrl = data['url'];
         isLoading = false;
       });
     } else {
       setState(() {
-        careerPathPlan = 'Failed to fetch data';
+        imageUrl = null;
         isLoading = false;
       });
     }
@@ -46,45 +48,61 @@ class _CareersShowState extends State<CareersShow> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body:
           isLoading
               ? Center(child: CircularProgressIndicator(color: Colors.black))
-              : Padding(
+              : imageUrl != null
+              ? Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Card(
                   elevation: 8,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Career Path Plan for ${widget.carrer_topic}',
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(
+                          'Visualization for "${widget.carrer_topic}"',
                           style: TextStyle(
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
+                          textAlign: TextAlign.center,
                         ),
-                        SizedBox(height: 16),
-                        Expanded(
-                          child: SingleChildScrollView(
-                            child: Text(
-                              careerPathPlan!.replaceAll("*", " "),
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87,
-                              ),
-                            ),
+                      ),
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(16),
+                          child: Image.network(
+                            imageUrl!,
+                            fit: BoxFit.contain,
+                            errorBuilder: (context, error, stackTrace) {
+                              return Center(
+                                child: Text(
+                                  'Failed to load image',
+                                  style: TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 16,
+                                  ),
+                                ),
+                              );
+                            },
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
+                ),
+              )
+              : Center(
+                child: Text(
+                  'Failed to fetch data',
+                  style: TextStyle(fontSize: 18, color: Colors.red),
                 ),
               ),
     );

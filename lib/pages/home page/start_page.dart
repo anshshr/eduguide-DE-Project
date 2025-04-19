@@ -5,14 +5,12 @@ import 'dart:io';
 import 'package:eduguide/chat_services/pages/record_audio.dart';
 import 'package:eduguide/my%20widgets/my_container.dart';
 import 'package:eduguide/pages/ATS%20score%20calculator/ats.dart';
-import 'package:eduguide/pages/connect_mentor/connect_mentor.dart';
 import 'package:eduguide/pages/courses%20pages/courses.dart';
 import 'package:eduguide/pages/home%20page/jobs_list.dart';
 import 'package:eduguide/pages/interview%20questions/interview_que.dart';
 import 'package:eduguide/pages/quiz%20app/quiz_generator.dart';
 import 'package:eduguide/pages/resume%20review/resume_review.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 

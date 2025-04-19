@@ -6,8 +6,6 @@ import firebase_admin
 from firebase_admin import credentials, db
 import os
 from youtube_transcript_api import YouTubeTranscriptApi
-from plant.encoder import encode_plantuml
-
 
 load_dotenv()
 

@@ -6,10 +6,7 @@ import 'package:flutter/material.dart';
 
 class VideoSummary extends StatefulWidget {
   final String videoid;
-  const VideoSummary({
-    super.key,
-    required this.videoid,
-  });
+  const VideoSummary({super.key, required this.videoid});
 
   @override
   State<VideoSummary> createState() => _VideoSummaryState();
@@ -25,11 +22,15 @@ class _VideoSummaryState extends State<VideoSummary> {
     setState(() {
       isloaded = true;
     });
+
+    print(widget.videoid);
+    print(video_transcript);
   }
 
   Future get_summary_from_transcript(String transcript) async {
     String gemini_ans = await gemini_api.getgeminidata(
-        '${transcript}summarize it and also add your own points about the topic to make the user clearly understand the topic');
+      '${transcript}summarize it and also add your own points about the topic to make the user clearly understand the topic',
+    );
     setState(() {
       transcript_summary = gemini_ans;
     });
@@ -48,34 +49,40 @@ class _VideoSummaryState extends State<VideoSummary> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        padding:
-            const EdgeInsets.only(top: 50, left: 10, right: 10, bottom: 20),
+        padding: const EdgeInsets.only(
+          top: 50,
+          left: 10,
+          right: 10,
+          bottom: 20,
+        ),
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Colors.blueGrey[100]!,
-                Colors.blueGrey[200]!,
-                Colors.blueGrey[300]!,
-                Colors.blueGrey[200]!,
-                Colors.blueGrey[100]!,
-              ],
-            ),
-            borderRadius: BorderRadius.circular(20)),
-        child: isloaded == true
-            ? SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const Text(
-                      '👉  Video Summary  👈',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Card(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.blueGrey[100]!,
+              Colors.blueGrey[200]!,
+              Colors.blueGrey[300]!,
+              Colors.blueGrey[200]!,
+              Colors.blueGrey[100]!,
+            ],
+          ),
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child:
+            isloaded == true
+                ? SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const Text(
+                        '👉  Video Summary  👈',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Card(
                         margin: const EdgeInsets.symmetric(horizontal: 6),
                         shadowColor: Colors.grey,
                         borderOnForeground: true,
@@ -83,34 +90,37 @@ class _VideoSummaryState extends State<VideoSummary> {
                         elevation: 10,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10.0, vertical: 20),
+                            horizontal: 10.0,
+                            vertical: 20,
+                          ),
                           child: Text(
                             transcript_summary.replaceAll('*', " "),
                             style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 17),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 17,
+                            ),
                           ),
-                        ))
-                  ],
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+                : Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CircularProgressIndicator(color: Colors.black87),
+                      SizedBox(height: 10),
+                      Text(
+                        'Loading..',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 17,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              )
-            : Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CircularProgressIndicator(
-                      color: Colors.black87,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'Loading..',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-                    )
-                  ],
-                ),
-              ),
       ),
     );
   }

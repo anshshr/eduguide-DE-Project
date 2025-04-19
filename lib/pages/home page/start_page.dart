@@ -5,6 +5,7 @@ import 'dart:io';
 import 'package:eduguide/chat_services/pages/record_audio.dart';
 import 'package:eduguide/my%20widgets/my_container.dart';
 import 'package:eduguide/pages/ATS%20score%20calculator/ats.dart';
+import 'package:eduguide/pages/career_planning/career_plan.dart';
 import 'package:eduguide/pages/courses%20pages/courses.dart';
 import 'package:eduguide/pages/home%20page/jobs_list.dart';
 import 'package:eduguide/pages/interview%20questions/interview_que.dart';
@@ -610,7 +611,7 @@ class _StartPageState extends State<StartPage> {
                     Align(
                       alignment: Alignment.topLeft,
                       child: Text(
-                        '👉🏾  Get your Queries Solved ',
+                        '👉🏾  Plan your Career ',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
@@ -668,6 +669,58 @@ class _StartPageState extends State<StartPage> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => RecordAudio(),
+                              ),
+                            );
+                          },
+                        ),
+                        InkWell(
+                          child: SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.2,
+                            width: MediaQuery.of(context).size.width * 0.471,
+                            child: Card(
+                              shadowColor: Colors.grey,
+                              borderOnForeground: true,
+                              color: Colors.grey[300]!,
+                              elevation: 10,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                  vertical: 10,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Icon(
+                                      Icons.edit_document,
+                                      size: 38,
+                                      color: Colors.black87,
+                                    ),
+                                    Text(
+                                      'CAREER PLANNING',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Get a proper career planning',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          onTap: () {
+                            // go to  career planning page
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => CareerPlan(),
                               ),
                             );
                           },

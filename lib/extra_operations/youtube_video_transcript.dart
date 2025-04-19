@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 Future<String> get_video_transcript(String videoid) async {
   try {
     var response = await http.get(
-      Uri.parse('http://192.168.119.231:8000/get_video_transcript/$videoid'),
+      Uri.parse('http://192.168.119.237:5000/get_video_transcript/$videoid'),
     );
 
     if (response.statusCode == 200) {

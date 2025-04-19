@@ -6,6 +6,8 @@ import firebase_admin
 from firebase_admin import credentials, db
 import os
 from youtube_transcript_api import YouTubeTranscriptApi
+from plant.encoder import encode_plantuml
+
 
 load_dotenv()
 
@@ -119,6 +121,28 @@ def mentor_match():
 
     response = llm.invoke([HumanMessage(prompt)])
     return jsonify({"mentor_match_suggestion": response.content})
+
+# to generate the fow chart of the user specific needs
+@app.route("/generate_diagram", methods=["POST"])
+def generate_diagram():
+    data = request.get_json()
+    topic = data.get("topic")
+
+    if not topic:
+        return jsonify({"error": "Topic is required"}), 400
+
+    # Generate PlantUML flowchart code using LLM
+    prompt = f"Generate a simple PlantUML flowchart that guides a user through a career plan for: {topic}. Use start, action, decision, and stop blocks."
+    response = llm.invoke([HumanMessage(prompt)])
+    plantuml_code = response.content.strip()
+
+    try:
+        # Encode for PlantUML server
+        encoded = encode_plantuml(plantuml_code)
+        img_url = f"https://www.plantuml.com/plantuml/svg/{encoded}"
+        return jsonify({"image_url": img_url, "plantuml_code": plantuml_code})
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
 
 
 if __name__ == "__main__":

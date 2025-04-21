@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 
 import '../../gemini/gemini_services.dart';
-import '../../my widgets/my_button.dart';
+import '../../widgets/my_button.dart';
 import 'tts.dart';
 
 class QuizStart extends StatefulWidget {

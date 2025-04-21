@@ -2,8 +2,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:eduguide/bottom_navigation.dart';
-import 'package:eduguide/my%20widgets/my_button.dart';
-import 'package:eduguide/my%20widgets/my_dialog.dart';
+import 'package:eduguide/widgets/my_button.dart';
+import 'package:eduguide/widgets/my_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
 

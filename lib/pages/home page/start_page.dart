@@ -2,8 +2,8 @@
 
 import 'dart:async';
 import 'dart:io';
-import 'package:eduguide/chat_services/pages/record_audio.dart';
-import 'package:eduguide/my%20widgets/my_container.dart';
+import 'package:eduguide/langChain_chat_service/pages/record_audio.dart';
+import 'package:eduguide/widgets/my_container.dart';
 import 'package:eduguide/pages/ATS%20score%20calculator/ats.dart';
 import 'package:eduguide/pages/career_planning/career_plan.dart';
 import 'package:eduguide/pages/courses%20pages/courses.dart';

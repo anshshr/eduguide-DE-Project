@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../db operations/user_database.dart';
-import '../my widgets/my_button.dart';
-import '../my widgets/my_dialog.dart';
-import '../my widgets/my_textfield.dart';
+import '../widgets/my_button.dart';
+import '../widgets/my_dialog.dart';
+import '../widgets/my_textfield.dart';
 import 'login_page.dart';
 
 class RegisterPage extends StatefulWidget {

@@ -53,18 +53,27 @@ class _CareersShowState extends State<CareersShow> {
           isLoading
               ? Center(child: CircularProgressIndicator(color: Colors.black))
               : imageUrl != null
-              ? Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Card(
-                  elevation: 8,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
+              ? SingleChildScrollView(
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        Colors.blue.shade900,
+                        Colors.blue.shade600,
+                        Colors.blue.shade900,
+                        Colors.blue.shade600,
+                        Colors.blue.shade900,
+                        Colors.blue.shade600,
+                      ],
+                    ),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: const EdgeInsets.only(top: 18.0),
                         child: Text(
                           'Visualization for "${widget.carrer_topic}"',
                           style: TextStyle(
@@ -77,7 +86,7 @@ class _CareersShowState extends State<CareersShow> {
                       ),
                       Expanded(
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(16),
+                          borderRadius: BorderRadius.circular(20),
                           child: Image.network(
                             imageUrl!,
                             fit: BoxFit.contain,

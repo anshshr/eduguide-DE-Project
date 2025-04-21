@@ -7,7 +7,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../my widgets/my_dialog.dart';
+import '../../widgets/my_dialog.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});

@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names
 
-import 'package:eduguide/extra_operations/youtube_video_transcript.dart';
+import 'package:eduguide/services/youtube_video_transcript.dart';
 import 'package:eduguide/gemini/gemini_services.dart';
 import 'package:flutter/material.dart';
 

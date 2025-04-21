@@ -1,4 +1,4 @@
-import 'package:eduguide/extra_operations/youtube_video_transcript.dart';
+import 'package:eduguide/services/youtube_video_transcript.dart';
 import 'package:eduguide/gemini/gemini_services.dart';
 import 'package:flutter/material.dart';
 

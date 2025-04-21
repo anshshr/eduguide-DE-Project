@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
-import 'package:eduguide/my%20widgets/my_button.dart';
+import 'package:eduguide/widgets/my_button.dart';
 import 'package:eduguide/pages/payments/payment_page.dart';
 import 'package:flutter/material.dart';
 

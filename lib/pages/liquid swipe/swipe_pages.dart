@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../my widgets/my_button.dart';
+import '../../widgets/my_button.dart';
 import '../register_page.dart';
 import 'pages.dart';
 

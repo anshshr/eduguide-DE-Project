@@ -61,6 +61,8 @@ dependencies:
   stream_video: ^0.8.4
   stream_video_push_notification: ^0.8.4
   stream_video_screen_sharing: ^0.9.1
+  open_file: ^3.5.10
+  pdf: ^3.11.3
 
 
 dev_dependencies:

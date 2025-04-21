@@ -1,11 +1,11 @@
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:eduguide/extra_operations/send_email.dart';
+import 'package:eduguide/services/send_email.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../my widgets/my_button.dart';
-import '../../my widgets/my_dialog.dart';
+import '../../widgets/my_button.dart';
+import '../../widgets/my_dialog.dart';
 
 Future problem_dialog(BuildContext context) {
   TextEditingController problem = TextEditingController();

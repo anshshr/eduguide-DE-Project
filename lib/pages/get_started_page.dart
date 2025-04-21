@@ -8,7 +8,7 @@ import 'package:getwidget/components/button/gf_button.dart';
 import 'package:getwidget/getwidget.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import '../my widgets/my_button.dart';
+import '../widgets/my_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

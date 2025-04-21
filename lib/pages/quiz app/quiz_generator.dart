@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
 
-import '../../my widgets/my_button.dart';
-import '../../my widgets/my_dialog.dart';
-import '../../my widgets/my_textfield.dart';
+import '../../widgets/my_button.dart';
+import '../../widgets/my_dialog.dart';
+import '../../widgets/my_textfield.dart';
 import 'start_quiz_page.dart';
 
 void main() {

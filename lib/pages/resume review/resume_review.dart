@@ -9,8 +9,8 @@ import 'package:get/get_rx/get_rx.dart';
 
 import 'package:lottie/lottie.dart';
 import '../../gemini/gemini_services.dart';
-import '../../extra_operations/text_extraction.dart';
-import '../../my widgets/my_button.dart';
+import '../../services/text_extraction.dart';
+import '../../widgets/my_button.dart';
 import 'resume_alingment.dart';
 
 class ResumeReview extends StatefulWidget {

@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../extra_operations/youtube_api.dart';
+import '../../services/youtube_api.dart';
 import 'youtube_player_page.dart';
 
 class DisplayPage extends StatefulWidget {

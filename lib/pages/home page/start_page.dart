@@ -11,6 +11,7 @@ import 'package:eduguide/pages/home%20page/jobs_list.dart';
 import 'package:eduguide/pages/interview%20questions/interview_que.dart';
 import 'package:eduguide/pages/quiz%20app/quiz_generator.dart';
 import 'package:eduguide/pages/resume%20review/resume_review.dart';
+import 'package:eduguide/pages/video_call_feature/experts_list.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -728,6 +729,62 @@ class _StartPageState extends State<StartPage> {
                       ],
                     ),
                     SizedBox(height: 10),
+                    Row(
+                      children: [
+                        InkWell(
+                          child: SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.2,
+                            width: MediaQuery.of(context).size.width * 0.471,
+                            child: Card(
+                              shadowColor: Colors.grey,
+                              borderOnForeground: true,
+                              color: Colors.grey[300]!,
+                              elevation: 10,
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                  vertical: 10,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Icon(
+                                      Icons.person_add_alt_1_rounded,
+                                      size: 38,
+                                      color: Colors.black87,
+                                    ),
+                                    Text(
+                                      'CALL MENTOR',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      'Get connected with a mentor',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          onTap: () {
+                            // go to  career planning page
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ExpertsList(),
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

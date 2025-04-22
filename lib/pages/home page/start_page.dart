@@ -460,14 +460,14 @@ class _StartPageState extends State<StartPage> {
                                       color: Colors.black87,
                                     ),
                                     Text(
-                                      'QUIZ ARENA',
+                                      'Mock Interview',
                                       style: TextStyle(
                                         fontSize: 17,
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
                                     Text(
-                                      'Improve your skills with Quizzes',
+                                      'Improve your skills with mock interviews',
                                       style: TextStyle(
                                         fontSize: 15,
                                         fontWeight: FontWeight.w500,

@@ -23,7 +23,7 @@ class _ProfileState extends State<Profile> {
   List courses = [];
   String? course_list = "";
   final ImagePicker picker = ImagePicker();
- Future<void> getProfileData() async {
+  Future<void> getProfileData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       name = prefs.getString('name');
@@ -51,14 +51,15 @@ class _ProfileState extends State<Profile> {
 
   Future pick_photo() async {
     final picked_file = await FilePicker.platform.pickFiles(
-        allowedExtensions: ['jpeg', 'jpg', 'avif', 'png'],
-        type: FileType.custom);
+      allowedExtensions: ['jpeg', 'jpg', 'avif', 'png'],
+      type: FileType.custom,
+    );
 
     if (picked_file == null) {
       dialog(context, 'Please pick a Profile picture');
       return;
     }
-     final path = picked_file.files.single.path!;
+    final path = picked_file.files.single.path!;
     final directory = await getApplicationDocumentsDirectory();
     final newFilePath = '${directory.path}/${picked_file.files.single.name}';
     final newFile = await File(path).copy(newFilePath);
@@ -69,19 +70,18 @@ class _ProfileState extends State<Profile> {
     setState(() {
       file = newFile;
     });
-
   }
 
   Future camera_image() async {
-    final XFile? selected_image =
-        await picker.pickImage(source: ImageSource.camera);
+    final XFile? selected_image = await picker.pickImage(
+      source: ImageSource.camera,
+    );
 
     if (selected_image == null) {
       dialog(context, 'Please select an image');
       return;
     }
 
-    
     final directory = await getApplicationDocumentsDirectory();
     final newFilePath = '${directory.path}/${selected_image.name}';
     final newFile = await File(selected_image.path).copy(newFilePath);
@@ -92,7 +92,6 @@ class _ProfileState extends State<Profile> {
     setState(() {
       file = newFile;
     });
-
   }
 
   Future select_menu(BuildContext context) async {
@@ -123,9 +122,7 @@ class _ProfileState extends State<Profile> {
                       Navigator.pop(context);
                     },
                   ),
-                  SizedBox(
-                    width: 35,
-                  ),
+                  SizedBox(width: 35),
                   GestureDetector(
                     child: Icon(
                       Icons.photo_size_select_actual,
@@ -137,9 +134,7 @@ class _ProfileState extends State<Profile> {
                       Navigator.pop(context);
                     },
                   ),
-                  SizedBox(
-                    width: 35,
-                  ),
+                  SizedBox(width: 35),
                   GestureDetector(
                     child: Icon(
                       Icons.no_accounts_sharp,
@@ -158,7 +153,7 @@ class _ProfileState extends State<Profile> {
                   ),
                 ],
               ),
-            )
+            ),
           ],
         );
       },
@@ -181,15 +176,17 @@ class _ProfileState extends State<Profile> {
         width: double.infinity,
         padding: EdgeInsets.symmetric(horizontal: 25, vertical: 20),
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
               const Color.fromARGB(255, 223, 199, 228),
               const Color.fromARGB(255, 223, 199, 228),
               const Color.fromARGB(255, 223, 199, 228),
               const Color.fromARGB(255, 223, 199, 228),
-            ])),
+            ],
+          ),
+        ),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -201,9 +198,7 @@ class _ProfileState extends State<Profile> {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: 20),
 
               //space for uploading photo with circular avatar
               Stack(
@@ -212,90 +207,90 @@ class _ProfileState extends State<Profile> {
                     backgroundColor: Colors.grey[100],
                     radius: 100,
                     child: Center(
-                        child: file == null
-                            ? Icon(
+                      child:
+                          file == null
+                              ? Icon(
                                 Icons.person,
                                 color: Colors.black87,
                                 size: 170,
                               )
-                            : ClipOval(
+                              : ClipOval(
                                 child: Align(
-                                    alignment: Alignment.topCenter,
-                                    child: Image.file(
-                                      file!,
-                                      fit: BoxFit.cover,
-                                      height: 200,
-                                      width: 200,
-                                    )),
-                              )),
+                                  alignment: Alignment.topCenter,
+                                  child: Image.file(
+                                    file!,
+                                    fit: BoxFit.cover,
+                                    height: 200,
+                                    width: 200,
+                                  ),
+                                ),
+                              ),
+                    ),
                   ),
                   IconButton(
-                    icon: Icon(
-                      Icons.add_a_photo_rounded,
-                      size: 30,
-                    ),
+                    icon: Icon(Icons.add_a_photo_rounded, size: 30),
                     onPressed: () {
                       select_menu(context);
                     },
-                  )
+                  ),
                 ],
               ),
-              SizedBox(
-                height: 30,
-              ),
+              SizedBox(height: 30),
 
               //name during registration
               Card(
-                  shadowColor: Colors.grey,
-                  borderOnForeground: true,
-                  color: Colors.white,
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 15),
-                    child: Text(
-                      'Name : - $name',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  )),
-              SizedBox(
-                height: 20,
+                shadowColor: Colors.grey,
+                borderOnForeground: true,
+                color: Colors.white,
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 15,
+                  ),
+                  child: Text(
+                    'Name : - $name',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
+              SizedBox(height: 20),
               //email during registration
               Card(
-                  shadowColor: Colors.grey,
-                  borderOnForeground: true,
-                  color: Colors.white,
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 16, vertical: 15),
-                    child: Text(
-                      'Email I.D. :- $email',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  )),
-              SizedBox(
-                height: 20,
+                shadowColor: Colors.grey,
+                borderOnForeground: true,
+                color: Colors.white,
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 15,
+                  ),
+                  child: Text(
+                    'Email I.D. :- $email',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
+              SizedBox(height: 20),
 
               //user selected topic while entering the app
               Card(
-                  shadowColor: Colors.grey,
-                  borderOnForeground: true,
-                  color: Colors.white,
-                  elevation: 5,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 15),
-                    child: Text(
-                      'Languages Known :- $course_list',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                  )),
+                shadowColor: Colors.grey,
+                borderOnForeground: true,
+                color: Colors.white,
+                elevation: 5,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 15,
+                  ),
+                  child: Text(
+                    'Interested Skills :- $course_list',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

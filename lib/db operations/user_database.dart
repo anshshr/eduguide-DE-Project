@@ -1,5 +1,5 @@
-// ignore_for_file: non_constant_identifier_names, prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:eduguide/widgets/my_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +28,18 @@ Future<void> login_user(String email, String password) async {
         .signInWithEmailAndPassword(email: email, password: password);
     pref.setString('email', email);
     pref.setString('error_msg', "");
+
+    String? userRole = pref.getString('user_role');
+    if (userRole != null) {
+      // Assuming you have a Firestore instance set up
+      final firestore = FirebaseFirestore.instance;
+
+      await firestore.collection('user_type').doc(email).set({
+      'name': pref.getString('name'),
+      'email': email,
+      'role': userRole,
+      });
+    }
   } on FirebaseAuthException catch (e) {
     pref.setString('error_msg', e.code);
   }

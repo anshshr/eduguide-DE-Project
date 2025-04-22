@@ -63,6 +63,7 @@ dependencies:
   stream_video_screen_sharing: ^0.9.1
   open_file: ^3.5.10
   pdf: ^3.11.3
+  cloud_firestore: ^5.6.6
 
 
 dev_dependencies:

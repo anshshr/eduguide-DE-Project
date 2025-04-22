@@ -53,59 +53,57 @@ class _CareersShowState extends State<CareersShow> {
           isLoading
               ? Center(child: CircularProgressIndicator(color: Colors.black))
               : imageUrl != null
-              ? SingleChildScrollView(
-                child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [
-                        Colors.blue.shade900,
-                        Colors.blue.shade600,
-                        Colors.blue.shade900,
-                        Colors.blue.shade600,
-                        Colors.blue.shade900,
-                        Colors.blue.shade600,
-                      ],
-                    ),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 18.0),
-                        child: Text(
-                          'Visualization for "${widget.carrer_topic}"',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      Expanded(
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Image.network(
-                            imageUrl!,
-                            fit: BoxFit.contain,
-                            errorBuilder: (context, error, stackTrace) {
-                              return Center(
-                                child: Text(
-                                  'Failed to load image',
-                                  style: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 16,
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ),
+              ? Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      Colors.blue.shade900,
+                      Colors.blue.shade600,
+                      Colors.blue.shade900,
+                      Colors.blue.shade600,
+                      Colors.blue.shade900,
+                      Colors.blue.shade600,
                     ],
                   ),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 18.0),
+                      child: Text(
+                        'Visualization for "${widget.carrer_topic}"',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                    Expanded(
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.network(
+                          imageUrl!,
+                          fit: BoxFit.contain,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Center(
+                              child: Text(
+                                'Failed to load image',
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 16,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               )
               : Center(

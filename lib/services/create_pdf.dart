@@ -4,7 +4,7 @@ import 'package:pdf/pdf.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:open_file/open_file.dart';
 
-Future<void> createPDF(String reportContent) async {
+Future<void> createPDF(String reportContent, String title) async {
   final pdf = pw.Document();
 
   pdf.addPage(
@@ -16,14 +16,14 @@ Future<void> createPDF(String reportContent) async {
           pw.Header(
             level: 0,
             child: pw.Text(
-              "Interview Preparation Content",
+              "Top Interview Questions",
               style: pw.TextStyle(fontSize: 24, fontWeight: pw.FontWeight.bold),
             ),
           ),
 
           // Report Content
           pw.Paragraph(
-            text: "Content:",
+            text: title,
             style: pw.TextStyle(fontSize: 18, fontWeight: pw.FontWeight.bold),
           ),
           pw.Paragraph(text: reportContent, style: pw.TextStyle(fontSize: 14)),

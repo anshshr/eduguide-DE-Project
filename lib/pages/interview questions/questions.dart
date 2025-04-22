@@ -25,7 +25,7 @@ class _QuestionsState extends State<Questions> {
 
   Future get_gemini_que_ans() async {
     String gemini_ans = await gemini_api.getgeminidata(
-      'can you give me the top 10 interview questions with detailed answers of ${widget.topic} in proper format',
+      'can you give me the top 10 interview questions with detailed answers of ${widget.topic} in proper format that i can prepare',
     );
     setState(() {
       result = gemini_ans;
@@ -91,7 +91,7 @@ class _QuestionsState extends State<Questions> {
                       my_button(
                         text: 'Generate PDF',
                         ontap: () {
-                          createPDF(result.replaceAll('*', ""));
+                          createPDF(result.replaceAll('*', ""), widget.topic);
                         },
                       ),
                     ],

@@ -1,5 +1,5 @@
-import 'package:eduguide/langChain_chat_service/services/langchain_service.dart';
-import 'package:eduguide/langChain_chat_service/services/speak_words.dart';
+import 'package:eduguide/pages/langChain_chat_service/services/langchain_service.dart';
+import 'package:eduguide/pages/langChain_chat_service/services/speak_words.dart';
 import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart';
 import 'package:avatar_glow/avatar_glow.dart';
